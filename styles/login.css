@@ -1,3 +1,7 @@
+html{
+    font-size:10px;
+}
+
 body{
     margin:0;
     padding:0;
@@ -7,11 +11,18 @@ body{
 .heightInput{
     min-width: 100px;
     width:50%;
-    font-size:75%;
-    border-radius:5em;
-    padding: 0 25px;
+    font-size:85%;
+    border-radius:5rem;
+    padding: 0 2.5rem;
     box-sizing: border-box;
-    margin:25px 0;
+    margin:1rem 0;
+    height: 4rem;
+    box-shadow:0.2rem 0.2rem 0.8rem #000000;
+    outline:none;
+}
+
+.heightInput:focus{
+    border-color:rgb(0, 89, 255);
 }
 
 .main{
@@ -20,42 +31,51 @@ body{
     left:50%;
     transform:translate(-50%,-50%);
     background-color:rgb(40,45,55);
-    padding: 0px 45px 30px;
-    border-radius:55px;
-    font-size:200%;
+    padding: 0px 4.5rem 3rem;
+    border-radius:5.5rem;
+    font-size:2rem;
     font-family:arial;
     text-align:center;
     border: solid 2px;
     color:White;
     width:50%;
-    max-width:640px;
-    min-width:400px;
+    max-width:64rem;
+    min-width:40rem;
     z-index:1;
+    box-shadow:0.3rem 0.3rem 1.5rem #000000;
+    text-shadow:2px 2px 1px black;
 }
 
 .formInputs{
     width:50%;
-    font-size:75%;
-    border-radius:5em;
-    padding: 0 25px;
+    font-size:85%;
+    border-radius:5rem;
+    padding: 0 2.5rem;
     box-sizing: border-box;
-    margin:20px 0;
-    min-width:270px;
-    height: 40px;
+    margin:2rem 0;
+    min-width:27rem;
+    height: 4rem;
+    outline:none;
+    border-width:2px;
+    box-shadow:0.2rem 0.2rem 0.8rem #000000;
+}
+
+.formInputs:focus{
+    border-color:rgb(0, 89, 255);
 }
 
 img{
-    margin:40px;
+    margin:4rem;
 }
 
 .submitBut{
     background-color:rgb(10,105,15);
     border: none;
-    padding:12.5px;
-    margin:20px;
+    padding:1.25rem;
+    margin:2rem;
     color:white;
-    border-radius:50px;
-    font-size:75%;
+    border-radius:5rem;
+    font-size:85%;
     width:50%;
     margin-bottom:50px;
     cursor: pointer;
@@ -84,8 +104,55 @@ a:hover{
 }
 
 .radio{
-    width:30px;
-    height:30px;
-    margin: 25px 15px;
+    width:2rem;
+    height:2rem;
+    margin: 2rem 1.5rem;
 }
+
+.passwordReq{
+    background-color:rgb(30,35,35);
+    width:50%;
+    min-width:30rem;
+    text-align:left;
+    margin:auto;
+    position:absolute;
+    left:0;
+    right:0;
+    border-radius:2rem;
+    transition: 0.1s;
+    transform: scale(0);
+    padding:0.6rem 0;
+    border: solid 1px white;
+    font-size: 2.5rem;
+    box-shadow:0.3rem 0.3rem 1rem #000000;
+    margin-top:-6rem;
+    
+}
+
+.visible{  
+    transform: scale(1);
+    margin-top:-2rem;
+}
+
+.error{
+    width:45%;
+    margin:auto;
+    padding:0;
+    text-align:left;
+    font-size: 1.7rem;
+    margin-top:-1.9rem;
+    margin-bottom:2rem;
+    color:rgb(230,40,40);
+    text-shadow:2px 2px 1px black;
+    display:none;
+}
+
+.passSign{
+    width:2rem;
+    height:2rem;
+    margin:0;
+    padding:0.5rem 2rem;
+    transform: translate(0, 15%);
+}
+
 

@@ -14,12 +14,22 @@
         <form action='./scripts/registerscript.php'>
             <label>E-mail:</label><br>
             <input type='mail' name='email' class='formInputs'><br>
+            <div class='error'>test</div>
             <label> Hasło: </label><br>
-            <input type='password' name='password' class='formInputs'><br>
+            <input type='password' name='password' class='formInputs' id='password'><br>
+            <div class='error'>test</div>
+            <div class='passwordReq'>
+                <img src='./images/heart_zigger_red.png' class='passSign'>min. 8 znaków<br>
+                <img src='./images/heart_zigger_red.png' class='passSign'>min. 1 wielka litera<br>
+                <img src='./images/heart_zigger_red.png' class='passSign'>min. 1 cyfra<br>
+                <img src='./images/heart_zigger_red.png' class='passSign'>min. 1 znak specjalny
+            </div>
             <label> Powtórz hasło: </label><br>
             <input type='password' name='passwordRepeat' class='formInputs'><br>
+            <div class='error'>test</div>
             <label> Data urodzenia</label><br>
             <input type='date' name='birthDate' class='formInputs'><br>
+            <div class='error'>test</div>
             <div class='sex'>
                 <label>Płeć:</label><br>
                 K<input type='radio' name='sex' value='k' class='radio'>
@@ -33,5 +43,7 @@
         </form>
         Lub <a href='login.php'> Zaloguj się </a>
     </div>
+    <script src='./scripts/passwordReq.js'></script>
+    <script src='./scripts/registerInputs.js'></script>
 </body>
 </html>
