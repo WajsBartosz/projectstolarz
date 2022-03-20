@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='./styles/login.css'>
     <link rel='icon' href='./images/favicon_zigger.png'>
+    <?php 
+        require './scripts/errors.php';
+    ?>
     <title>Rejestracja</title>
 </head>
 <body>
     <div class='main'>
         <img src='./images/logo_zigger.png' width='250px'>
-        <form action='./scripts/registerscript.php'>
+        <form action='./scripts/registerscript.php' method='POST'>
             <label>E-mail:</label><br>
             <input type='mail' name='email' class='formInputs'><br>
             <div class='error'>test</div>
@@ -37,7 +40,7 @@
             </div>
             <div class='height'>
                 <label>Wzrost[cm]:</label><br>
-                <input type='number' name='height' class='heightInput'>
+                <input type='number' name='height' class='heightInput' min="1" max="250">
             </div>
             <input type='submit' value='zarejestruj' class='submitBut'>
         </form>
