@@ -1,25 +1,31 @@
 const inputs = document.querySelectorAll('.formInputs');
 const errors = document.querySelectorAll('.error');
-var value
+
 var search
 var counter
-var Password = 0
+
+var Email = inputs[0].value
+var Password = inputs[1].value
+var PasswordRepeat = inputs[2].value
+var BirthDate = inputs[3].value
+
 var isGood = 0
+
 for(let i=0; i<inputs.length; i++){
     inputs[i].addEventListener('blur', () => {
             switch (i) {
+                // EMAIL ERRORS
                 case 0:
-                    value = inputs[i].value;
-                    search = value.search(/@/);
-                    let dotSearch = value.lastIndexOf('.')
+                    Email = inputs[i].value;
+                    search = Email.search(/@/);
+                    let dotSearch = Email.lastIndexOf('.')
                     counter = 0;
-                    for (let j=0; j<value.length; j++){
-                        if(value[j]=='@')
+                    for (let j=0; j<Email.length; j++){
+                        if(Email[j]=='@')
                         counter++
                     }
-                    let firstLetter = value.charCodeAt(0)
-                    //alert(firstLetter)
-                    if(value.length==0){
+                    let firstLetter = Email.charCodeAt(0)
+                    if(Email.length==0){
                         errors[i].style.display = 'block';
                         errors[i].innerHTML = 'Podaj E-mail!'
                         inputs[i].style.borderColor = 'red'
@@ -44,26 +50,26 @@ for(let i=0; i<inputs.length; i++){
                         inputs[i].style.borderColor = 'rgb(100,240,100)'
                     }
                     break;
+                // PASSWORD ERRORS
                 case 1:
-                    value = inputs[i].value;
-                    Password = value
+                    Password = inputs[i].value;
                     let specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
-                    if(value.length<8){
+                    if(Password.length<8){
                         errors[i].style.display = 'block';
                         errors[i].innerHTML = 'Hasło za krótkie'
                         inputs[i].style.borderColor = 'red'
                     }
-                    else if(value.search(/[A-Z]/)==-1){
+                    else if(Password.search(/[A-Z]/)==-1){
                         errors[i].style.display = 'block';
                         errors[i].innerHTML = 'Brak wielkiej litery'
                         inputs[i].style.borderColor = 'red'
                     }
-                    else if(value.search(/[0-9]/)==-1){
+                    else if(Password.search(/[0-9]/)==-1){
                         errors[i].style.display = 'block';
                         errors[i].innerHTML = 'Brak cyfry'
                         inputs[i].style.borderColor = 'red'
                     }
-                    else if(value.search(specialChars)==-1){
+                    else if(Password.search(specialChars)==-1){
                         errors[i].style.display = 'block';
                         errors[i].innerHTML = 'Brak znaku specjalnego'
                         inputs[i].style.borderColor = 'red'
@@ -74,14 +80,15 @@ for(let i=0; i<inputs.length; i++){
                         isGood = 1    
                     }
                     break;
+                // PASSWORD REPEAT ERRORS
                 case 2:
-                    value = inputs[i].value;
+                    PasswordRepeat = inputs[i].value;
                     if(Password == 0){
                         errors[i].style.display = 'block';
                         errors[i].innerHTML = 'Najpierw podaj hasło'
                         inputs[i].style.borderColor = 'red'
                     }
-                    else if(value!=Password){
+                    else if(PasswordRepeat!=Password){
                         errors[i].style.display = 'block';
                         errors[i].innerHTML = 'Hasła nie są takie same.'
                         inputs[i].style.borderColor = 'red'
@@ -96,9 +103,10 @@ for(let i=0; i<inputs.length; i++){
                         inputs[i].style.borderColor = 'rgb(100,240,100)'
                     }
                     break;
+                // BIRTH DATE ERRORS
                 case 3:
-                    value = inputs[i].value;
-                    let birthDay = new Date(value)
+                    BirthDate = inputs[i].value;
+                    let birthDay = new Date(BirthDate)
                     let todayDate = new Date()
                     let year = todayDate.getFullYear() - birthDay.getFullYear()
                     let month = todayDate.getMonth() - birthDay.getMonth()

@@ -42,7 +42,7 @@
                 <label>Wzrost[cm]:</label><br>
                 <input type='number' name='height' class='heightInput' min="1" max="250">
             </div>
-            <input type='submit' value='zarejestruj' class='submitBut'>
+            <input type='submit' value='zarejestruj' class='submitBut' id='submitBut' disabled>
         </form>
         Lub <a href='login.php'> Zaloguj się </a>
     </div>
