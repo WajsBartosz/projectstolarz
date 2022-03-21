@@ -40,5 +40,10 @@
             location.href=\"./register.php\";
             </script>";    
         }
+        if($_GET['error']==9){
+            echo "<script>alert(\"Ten mail jest już w użytku\");
+            location.href=\"./register.php\";
+            </script>";    
+        }
     }
 ?>
