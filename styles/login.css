@@ -30,7 +30,7 @@ body{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    background-color:rgb(40,45,55);
+    background-color: rgb(55, 65, 75);
     padding: 0px 4.5rem 3rem;
     border-radius:5.5rem;
     font-size:2rem;

@@ -1,0 +1,29 @@
+h3{
+    font-size:50px;
+    margin: 1rem 3rem;
+
+}
+
+.profile{
+    background-color: rgb(55, 65, 75);
+    width:100%;
+}
+
+.edit{
+    border-collapse:collapse
+}
+
+.edit form{
+    font-size:3rem;
+    display:flex;
+    flex-direction: column;
+}
+
+.editOne{
+    margin:0 2px;
+    padding:10px;
+}
+
+.editOne label{
+    display:block;
+}
