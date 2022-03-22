@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start();
+//if(!isset($_SESSION['login'])){
+//    header("location: ./login.php");
+//}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,9 +23,9 @@
         </a>
         <img src='./images/logo_zigger.png' class='logo'>
         <a href='search.php' class='link active'>Znajdź parę</a>
-        <a href='search.php' class='link'>Czat</a>
-        <a href='search.php' class='link'>Profil</a>
-        <a href='search.php' class='link'>Wyloguj się</a> 
+        <a href='chat.php' class='link'>Czat</a>
+        <a href='user.php' class='link'>Profil</a>
+        <a href='./scripts/logout.php' class='link'>Wyloguj się</a>  
     </div>
     <div class='main'>
         <div class='filters'>

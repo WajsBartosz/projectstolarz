@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if(isset($_SESSION['login'])){
+    header("location: ./user.php");
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,14 +41,14 @@
             <div class='error'>test</div>
             <div class='sex'>
                 <label>Płeć:</label><br>
-                K<input type='radio' name='sex' value='k' class='radio'>
+                K<input type='radio' name='sex' value='k' class='radio' checked>
                 M<input type='radio' name='sex' value='m' class='radio'>
             </div>
             <div class='height'>
                 <label>Wzrost[cm]:</label><br>
                 <input type='number' name='height' class='heightInput' min="1" max="250">
             </div>
-            <input type='submit' value='zarejestruj' class='submitBut' id='submitBut' disabled>
+            <input type='submit' value='zarejestruj' class='submitBut' id='submitBut'>
         </form>
         Lub <a href='login.php'> Zaloguj się </a>
     </div>

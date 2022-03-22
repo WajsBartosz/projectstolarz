@@ -1,0 +1,13 @@
+.chatOverlay {
+  height: 80vh;
+  width: 70%;
+  background-color: #fff;
+}
+
+.userList {
+  background-color: #fff;
+  height: 80vh;
+  width: 30%;
+  border-right-style: solid;
+  border-color: grey;
+}

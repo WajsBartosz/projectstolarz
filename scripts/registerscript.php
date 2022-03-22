@@ -79,7 +79,6 @@ if(!$registerError){
 $sql="INSERT INTO `users`(`email`, `password`,`birthDate`, `height`, `sex`) VALUES ('$mail','$encryptedPassword','$birthDate',$height,'$sex');";
 $insertCommand = $connect->query($sql);
     header("location: ../search.php");
-    session_start();
     $_SESSION['user'] = $mail;
 }
 ?>
