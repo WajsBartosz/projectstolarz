@@ -1,5 +1,6 @@
 <?php 
 require './connect.php';
+session_start();
 $mail=$_POST['email'];
 $password=$_POST['password'];
 $passwordRepeat=$_POST['passwordRepeat'];

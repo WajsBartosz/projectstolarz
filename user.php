@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php 
 session_start();
-//if(!isset($_SESSION['login'])){
-//    header("location: ./login.php");
-//}
+if(!isset($_SESSION['login'])){
+    header("location: ./login.php");
+}
 ?>
 <html lang="en">
 <head>
@@ -35,13 +35,14 @@ session_start();
             <hr>
             <?php
                 require_once('./scripts/connect.php');
-                $sql = "select * from `users`";
+                require_once('./scripts/loggedUser.php');
                 $eyes = array('Brązowe','Zielone','Niebieskie','Szare','Piwne');
             ?>
             <div class='edit'>
                 <form action='./scripts/editUserInfo.php' method='post' enctype='multipart/form-data'>
                     <div class='editOne'>
                         <label>Zdjęcie:</label>
+                        <img src='./userPhotos/profilePicture_id<?php echo $_SESSION['user']['id']; ?>.png' width='700px'>
                         <input type='file' name='profilePicture'>
                     </div> 
                     <div class='editOne'>
