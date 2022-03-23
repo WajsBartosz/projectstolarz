@@ -42,36 +42,33 @@ if(!isset($_SESSION['login'])){
                 <form action='./scripts/editUserInfo.php' method='post' enctype='multipart/form-data'>
                     <div class='editOne'>
                         <label>Zdjęcie:</label>
-                        <img src='./userPhotos/profilePicture_id<?php echo $_SESSION['user']['id']; ?>.png' width='700px'>
+                        <img src='./userPhotos/profilePicture_id<?php echo $_SESSION['user']['id']; ?>.png' class='profileImage'>
                         <input type='file' name='profilePicture'>
                     </div> 
                     <div class='editOne'>
-                        <label>Imię:</label>
-                        <input type='text' name='firstname' value=<?php  ?>>
+                        <label>Imię: <input type='text' class='input' name='firstname' value=<?php  ?>></label>
                     </div>
                     <div class='editOne'>
-                        <label>Nazwisko:</label>
-                        <input type='text' name='surname' value=<?php  ?>>
+                        <label>Nazwisko: <input type='text' class='input' name='surname' value=<?php  ?>></label>  
                     </div>
                     <div class='editOne'>
-                        <label>Wzrost:</label>
-                        <input type='number' name='height' value=<?php  ?>>
+                        <label>Wzrost:  <input type='number' class='input' name='height' min="1" max="250" value=<?php  ?>></label>
                     </div>
                     <div class='editOne'>
                         <label>Płeć:</label>
-                        <input type='radio' name='sex' value='female'> Kobieta
-                        <input type='radio' name='sex' value='male'> Mężczyzna
+                        <input type='radio' class='radio' name='sex' value='female'> Kobieta
+                        <input type='radio' class='radio' name='sex' value='male'> Mężczyzna
                     </div>
                     <div class='editOne'>
                         <label>Kolor oczu:</label>
                         <?php
                         for($i=0; $i<count($eyes); $i++)
-                            echo "<input type='radio' name='hairColor' value='$eyes[$i]'> $eyes[$i]";  
+                            echo "<input type='radio' class='radio' name='hairColor' value='$eyes[$i]'> $eyes[$i]";  
                         ?>
                     </div>
                     <div class='editOne'>
                         <label>Kraj pochodzenia:</label>
-                        <select name='country' value=<?php  ?>>
+                        <select name='country' class='selekt' value=<?php  ?>>
                         <?php 
                             $sql_countries = 'select * from `countries`';
                             $result = $connect->query($sql_countries);
@@ -82,7 +79,7 @@ if(!isset($_SESSION['login'])){
                         </select>
                     </div>
                     <div class='editOne'>
-                        <input type='submit' value='AKTUALIZUJ' name='submitButton'>
+                        <input type='submit' value='AKTUALIZUJ' name='submitButton' class='submitButton'>
                     </div>
                 </form>
             </div>
