@@ -81,7 +81,7 @@ if(!isset($_SESSION['login'])){
                                     $sql_countries = 'select * from `countries`';
                                     $result = $connect->query($sql_countries);
                                     foreach($result as $key){
-                                        echo "<option value="$key['id']">$key[country_name]</option>";
+                                        echo "<option value='$key['id']'>$key[country_name]</option>";
                                     }
                                 ?>
                             </select>
