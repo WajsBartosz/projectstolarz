@@ -37,6 +37,7 @@ if(!isset($_SESSION['login'])){
                 require_once('./scripts/connect.php');
                 require_once('./scripts/loggedUser.php');
                 $eyes = array('Brązowe','Zielone','Niebieskie','Szare','Piwne');
+                $hair = array('Jasne','Ciemne','Inne');
             ?>
             <div class='edit'>
                 <form action='./scripts/editUserInfo.php' method='post' enctype='multipart/form-data'>
@@ -63,7 +64,14 @@ if(!isset($_SESSION['login'])){
                         <label>Kolor oczu:</label>
                         <?php
                         for($i=0; $i<count($eyes); $i++)
-                            echo "<input type='radio' class='radio' name='hairColor' value='$eyes[$i]'> $eyes[$i]";  
+                            echo "<input type='radio' class='radio' name='eyeColor' value='$eyes[$i]'> $eyes[$i]";  
+                        ?>
+                    </div>
+                    <div class='editOne'>
+                        <label>Kolor włosów:</label>
+                        <?php
+                        for($i=0; $i<count($hair); $i++)
+                            echo "<input type='radio' class='radio' name='eyeColor' value='$hair[$i]'> $hair[$i]";  
                         ?>
                     </div>
                     <div class='editOne'>
