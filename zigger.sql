@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 21 Mar 2022, 18:46
+-- Czas generowania: 24 Mar 2022, 17:56
 -- Wersja serwera: 10.4.17-MariaDB
 -- Wersja PHP: 8.0.1
 
@@ -319,16 +319,22 @@ CREATE TABLE `users` (
   `height` int(11) NOT NULL,
   `sex` enum('female','male') DEFAULT NULL,
   `eye color` varchar(30) DEFAULT NULL,
-  `country` int(11) DEFAULT NULL
+  `country` int(11) DEFAULT NULL,
+  `hair color` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `name`, `surname`, `birthDate`, `height`, `sex`, `eye color`, `country`) VALUES
-(1, 'hubercik022@gmail.com', 'zaq1@WSX', '', '', '2022-12-09', 180, 'male', NULL, NULL),
-(2, 'szyszkawidelec1@onet.pl', 'c380f833034d60bf035a134094eb538d600dc6f9', '', '', '1998-01-20', 156, '', NULL, NULL);
+INSERT INTO `users` (`id`, `email`, `password`, `name`, `surname`, `birthDate`, `height`, `sex`, `eye color`, `country`, `hair color`) VALUES
+(2, 'szyszkawidelec1@onet.pl', 'c380f833034d60bf035a134094eb538d600dc6f9', '', '', '1998-01-20', 156, '', NULL, NULL, ''),
+(16, 'test@wp.pl', 'c380f833034d60bf035a134094eb538d600dc6f9', '', '', '2002-06-25', 183, 'female', NULL, NULL, ''),
+(17, 'hubercik022@gmail.com', 'c380f833034d60bf035a134094eb538d600dc6f9', 'polska', 'siema', '2002-06-25', 180, 'female', 'Brązowe', 179, 'Jasne'),
+(18, 'hubercik0222@gmail.com', 'c380f833034d60bf035a134094eb538d600dc6f9', '', '', '2002-06-25', 123, 'female', NULL, NULL, ''),
+(19, 'hubercik0223@gmail.com', 'c380f833034d60bf035a134094eb538d600dc6f9', '', '', '2002-06-25', 181, 'male', NULL, NULL, ''),
+(20, 'hubercik022@gmail.com78', 'c380f833034d60bf035a134094eb538d600dc6f9', '', '', '2002-06-25', 126, 'male', NULL, NULL, ''),
+(21, 'hubercik022@gmail.com777', 'c380f833034d60bf035a134094eb538d600dc6f9', '', '', '2002-06-25', 132, 'male', NULL, NULL, '');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -367,7 +373,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Ograniczenia dla zrzutów tabel
