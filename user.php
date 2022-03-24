@@ -38,6 +38,13 @@ if(!isset($_SESSION['login'])){
                 require_once('./scripts/loggedUser.php');
                 $eyes = array('Brązowe','Zielone','Niebieskie','Szare','Piwne');
                 $hair = array('Jasne','Ciemne','Inne');
+                $tmp=$_SESSION['user']['id'];
+                $sql="SELECT `name`,`surname`,`sex`,`height`,`eye color`,`hair color`,`country_name`,`countries`.`id` as `countryID` from `users`
+                inner join `countries`
+                on `users`.`country`=`countries`.`id`
+                where `users`.`id`=$tmp";
+                $result=$connect->query($sql);
+                $userInfo=$result->fetch_assoc();
             ?>
             <div class='edit'>
                 <form action='./scripts/editUserInfo.php' method='post' enctype='multipart/form-data'>
@@ -47,36 +54,45 @@ if(!isset($_SESSION['login'])){
                         <input type='file' name='profilePicture'>
                     </div> 
                     <div class='editOne'>
-                        <label>Imię: <input type='text' class='input' name='firstname' value=<?php  ?>></label>
+                        <label>Imię: <input type='text' class='input' name='firstname' value='<?php echo $userInfo['name']; ?>'></label>
                     </div>
                     <div class='editOne'>
-                        <label>Nazwisko: <input type='text' class='input' name='surname' value=<?php  ?>></label>  
+                        <label>Nazwisko: <input type='text' class='input' name='surname' value="<?php echo $userInfo['surname']; ?>"></label>  
                     </div>
                     <div class='editOne'>
-                        <label>Wzrost:  <input type='number' class='input' name='height' min="1" max="250" value=<?php  ?>></label>
+                        <label>Wzrost:  <input type='number' class='input' name='height' min="1" max="250" value=<?php echo $userInfo['height']; ?>></label>
                     </div>
                     <div class='editOne'>
                         <label>Płeć:</label>
-                        <input type='radio' class='radio' name='sex' value='female'> Kobieta
-                        <input type='radio' class='radio' name='sex' value='male'> Mężczyzna
+                        <input type='radio' class='radio' name='sex' value='female' <?php if($userInfo['sex']=='female') echo "checked"; ?>> Kobieta
+                        <input type='radio' class='radio' name='sex' value='male' <?php if($userInfo['sex']=='male') echo "checked"; ?>> Mężczyzna
                     </div>
                     <div class='editOne'>
                         <label>Kolor oczu:</label>
                         <?php
-                        for($i=0; $i<count($eyes); $i++)
-                            echo "<input type='radio' class='radio' name='eyeColor' value='$eyes[$i]'> $eyes[$i]";  
+                        for($i=0; $i<count($eyes); $i++){
+                            echo "<input type='radio' class='radio' name='eyeColor' value='$eyes[$i]'";
+                            if($userInfo['eye color']==$eyes[$i]) echo "checked";  
+                            echo ">$eyes[$i]";
+                        }
                         ?>
                     </div>
                     <div class='editOne'>
                         <label>Kolor włosów:</label>
                         <?php
-                        for($i=0; $i<count($hair); $i++)
-                            echo "<input type='radio' class='radio' name='hairColor' value='$hair[$i]'> $hair[$i]";  
+                        for($i=0; $i<count($hair); $i++){
+                            echo "<input type='radio' class='radio' name='hairColor' value='$hair[$i]'";
+                            if($userInfo['hair color']==$hair[$i]) echo "checked";
+                            echo ">$hair[$i]";  
+                        }
                         ?>
                     </div>
                     <div class='editOne'>
                         <label>Kraj pochodzenia:</label>
                             <select name='country' class='selekt'>
+                                <option selected='selected' value=<?php $userInfo['countryID'] ?>>
+                                    <?php echo $userInfo['country_name']; ?>
+                                </option>
                                 <?php 
                                     $sql_countries = 'select * from `countries`';
                                     $result = $connect->query($sql_countries);
