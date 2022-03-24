@@ -68,15 +68,17 @@ if(!isset($_SESSION['login'])){
                     </div>
                     <div class='editOne'>
                         <label>Kraj pochodzenia:</label>
-                        <select name='country' class='selekt' value=<?php  ?>>
-                        <?php 
-                            $sql_countries = 'select * from `countries`';
-                            $result = $connect->query($sql_countries);
-                            foreach($result as $key){
-                                echo "<option>$key[country_name]</option>";
-                            }
-                        ?>
-                        </select>
+                        <div class="custom-select">
+                            <select name='country' class='selekt' value=<?php  ?>>
+                                <?php 
+                                    $sql_countries = 'select * from `countries`';
+                                    $result = $connect->query($sql_countries);
+                                    foreach($result as $key){
+                                        echo "<option>$key[country_name]</option>";
+                                    }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class='editOne'>
                         <input type='submit' value='AKTUALIZUJ' name='submitButton' class='submitButton'>
