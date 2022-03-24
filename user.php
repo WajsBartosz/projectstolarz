@@ -76,7 +76,7 @@ if(!isset($_SESSION['login'])){
                     </div>
                     <div class='editOne'>
                         <label>Kraj pochodzenia:</label>
-                            <select name='country' class='selekt' value=<?php  ?>>
+                            <select name='country' class='selekt'>
                                 <?php 
                                     $sql_countries = 'select * from `countries`';
                                     $result = $connect->query($sql_countries);
