@@ -90,7 +90,7 @@ if(!isset($_SESSION['login'])){
                     <div class='editOne'>
                         <label>Kraj pochodzenia:</label>
                             <select name='country' class='selekt'>
-                                <option selected='selected' value=<?php $userInfo['countryID'] ?>>
+                                <option selected='selected' value=<?php echo $userInfo['countryID']; ?>>
                                     <?php echo $userInfo['country_name']; ?>
                                 </option>
                                 <?php 

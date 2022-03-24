@@ -13,8 +13,7 @@
         $hair = $_POST['hairColor'];
         $country = $_POST['country'];
 
-        $user = $_SESSION['user'];
-        //print_r($user);
+        $user = $_SESSION['user'];   
 
         require_once("./connect.php");
         $sql = "update `users` set `name`='$name', `surname`='$surname', `height`='$height', `sex`='$sex', `eye color`='$eye', `country`='$country', `hair color`='$hair' where `id` like '$user[id]'";
