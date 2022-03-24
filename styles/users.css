@@ -43,14 +43,6 @@ h3{
     outline: none;
 }
 
-.selekt{
-    background-color:rgb(36, 43, 49);
-    height: 40px;
-    width: 320px;
-    color: white;
-    font-size: 20px;
-}
-
 .submitButton{
     height: 40px;
     width: 200px;
@@ -62,4 +54,12 @@ h3{
 .submitButton:hover{
     background-color:rgb(20,145,25);
     color: black;
+}
+
+.selekt{
+    background-color:rgb(36, 43, 49);
+    height: 40px;
+    width: 320px;
+    color: white;
+    font-size: 20px;
 }
