@@ -153,6 +153,12 @@ footer {
   box-sizing: border-box;
   min-width: 25rem;
   margin: 1rem 0;
+  color:white;
+  padding: 2rem;
+}
+
+.gapFill{
+  visibility: hidden;
 }
 
 @media (max-width: 1300px) {
@@ -214,6 +220,10 @@ footer {
   .main {
     flex-direction: column;
   }
+
+  .gapFillSecond{
+    display:none;
+  }
 }
 
 @media (max-width: 900px) {
@@ -232,5 +242,9 @@ footer {
 @media (max-width: 650px) {
   .usersTab {
     width: 80%;
+  }
+
+  .gapFill{
+    display:none;
   }
 }

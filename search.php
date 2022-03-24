@@ -62,42 +62,32 @@ if(!isset($_SESSION['login'])){
             <h4>Użytkownicy</h4>
             <hr>
             <div class='usersShow'>
-                <div class='usersTab'>
+                <?php
+                require_once('./scripts/connect.php');
+                require_once('./scripts/loggedUser.php');
+                $sql = 'select * from `users` where `name` is not null and `surname` is not null and `sex` is not null and `eye color` is not null and `country` is not null and `hair color` is not null';
+                $result = $connect->query($sql);
+                $counter=0;
+                foreach($result as $key){
+                    if($key['id']==$_SESSION['user']['id'])
+                        continue;
+                    echo <<< userdiv
+                    <div class='usersTab'>
+                        <img src='./userPhotos/profilePicture_id$key[id].png' width=100%>
+                        $key[name] $key[surname]
+                    </div>
+userdiv;
+                $counter++;
+                }
 
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
-                <div class='usersTab'>
-
-                </div>
+                $rest = $counter%3;
+                if($rest==2)
+                    echo "<div class='usersTab gapFill'></div>";
+                else if($rest==1){
+                    echo "<div class='usersTab gapFill gapFillSecond'></div>";
+                    echo "<div class='usersTab gapFill gapFillSecond'></div>";
+                }
+                ?>
             </div>
         </div>
     </div>
