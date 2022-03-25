@@ -71,12 +71,8 @@ if(!isset($_SESSION['login'])){
                 foreach($result as $key){
                     if($key['id']==$_SESSION['user']['id'])
                         continue;
-                    echo <<< userdiv
-                    <div class='usersTab'>
-                        <img src='./userPhotos/profilePicture_id$key[id].png' width=100%>
-                        $key[name] $key[surname]
-                    </div>
-userdiv;
+                    echo "<div class='usersTab'><img src='./userPhotos/profilePicture_id$key[id].png' width=100%>$key[name] $key[surname]</div>";
+
                 $counter++;
                 }
 
