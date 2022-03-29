@@ -11,7 +11,7 @@ passwordFoc.addEventListener('blur', () => {
   passwordReq.classList.remove('visible')
   }, true);
 
-passwordFoc.addEventListener('keyup', () => {
+passwordFoc.addEventListener('input', () => {
   passwordValue = document.querySelector('#password').value
   if(passwordValue.length>7){
     image[0].src = './images/heart_zigger_green.png'
